@@ -11,6 +11,8 @@ html = """
     <h2>Hello, udacity!, created on 14 apr 2015, my own webdev 101</h2>
     <br>
     <a href="/unit2/rot13">HW 1.1 - rot13</a>
+    <br>
+    <a href="/unit2/signup">HW 1.2 - signup</a>
   </body>
 
 </html>

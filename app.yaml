@@ -1,5 +1,5 @@
 application: hw1web101
-version: alpha-001
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -10,3 +10,9 @@ handlers:
 
 - url: /unit2/rot13
   script: rot13.app
+
+- url: /unit2/signup
+  script: signup.app
+
+- url: /unit2/welcome
+  script: signup.app
