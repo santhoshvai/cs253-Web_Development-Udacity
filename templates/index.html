@@ -1,5 +1,3 @@
-import webapp2
-html = """
 <!DOCTYPE html>
 
 <html>
@@ -13,14 +11,7 @@ html = """
     <a href="/unit2/rot13">HW 1.1 - rot13</a>
     <br>
     <a href="/unit2/signup">HW 1.2 - signup</a>
+    <br>
+    <a href="/unit3">HW 2.1 - BLOG</a>
   </body>
-
 </html>
-"""
-class MainPage(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(html)
-
-app = webapp2.WSGIApplication([
-    ('/', MainPage),
-], debug=True)

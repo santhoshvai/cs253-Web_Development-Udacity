@@ -92,7 +92,7 @@ def valid_verify(txt1, txt2):
 def escape_html(s):
     return cgi.escape(s, quote = True)
 
-class MainPage(webapp2.RequestHandler):
+class SignupMainPage(webapp2.RequestHandler):
     def write_form(self, username=None, password=None, verify=False, email=None, user_username=None, user_password=None, user_email=None):
         err_username = ""
         err_password = ""
@@ -157,8 +157,3 @@ class WelcomePage(webapp2.RequestHandler):
     def get(self):
         user = self.request.get('username')
         self.response.out.write(r'<h1 style="color: blue">Welcome&#44; %(user)s&#33;</h1>'%{"user": user})
-
-app = webapp2.WSGIApplication([
-    ('/unit2/signup', MainPage),
-    ('/unit2/welcome', WelcomePage),
-], debug=True)

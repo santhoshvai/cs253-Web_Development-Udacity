@@ -30,7 +30,7 @@ form = """
 </html>
 """
 
-class MainPage(webapp2.RequestHandler):
+class rot13MainPage(webapp2.RequestHandler):
     def write_form(self, txt=""):
         self.response.out.write(form %{"txt": escape_html(txt)})
 
@@ -40,7 +40,3 @@ class MainPage(webapp2.RequestHandler):
     def post(self):
         user_text = self.request.get('text')
         self.write_form(rot13(user_text))
-
-app = webapp2.WSGIApplication([
-    ('/unit2/rot13', MainPage),
-], debug=True)
