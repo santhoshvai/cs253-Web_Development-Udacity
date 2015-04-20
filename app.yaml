@@ -1,4 +1,4 @@
-application: udacity-cs253
+application: hw1web101
 version: 2
 runtime: python27
 api_version: 1
