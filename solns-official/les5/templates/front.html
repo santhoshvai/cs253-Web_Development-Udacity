@@ -2,16 +2,21 @@
 {% autoescape true %}
 <html>
     <head>
-        <title>All blog posts</title>
+        <title>/ascii/</title>
         <style type="text/css">
             body {
                 font-family: sans-serif; width: 800px; margin: 0 auto; padding: 10px;
             }
-            err{
+            .err {
                 color: red;
             }
             label {
                 display: block; font-size: 20px;
+            }
+            .map {
+                position: absolute;
+                right: 0;
+                top: 112px;
             }
             input[type=text] {
                 width: 400px; font-size: 20px; padding: 2px;
@@ -26,7 +31,7 @@
                 margin: 20px auto;
             }
 
-            .art {
+            .art + .art {
                 margin-top: 20px;
             }
             .art-title {
@@ -35,17 +40,28 @@
             .art-body {
                 margin: 0; font-size: 17px;
             }
-            .art-date {
-                float:right; font-size: 13px;
-            }
         </style>
     </head>
     <body>
-        {% for post in posts %}
+        <h1>/ascii/</h1>
+            <form method="post">
+            <label>
+                <div>title</div><input type="text" name="title" value="{{title}}">
+            </label>
+            <label>
+                <div>art</div><textarea name="art">{{art}}</textarea>
+            </label>
+            <div class="err">{{error}}</div>
+            <input type="submit">
+        </form>
+        {% if img_url %}
+            <img class="map" src="{{img_url}}">
+        {% endif %}
+        <hr>
+        {% for art in arts %}
         <div class="art">
-            <div class="art-title">{{post.title}} <div class="art-date">{{post.created}}</div></div>
-            <hr>
-            <div class="art-body">{{post.render() | safe}}</div>
+            <div class="art-title">{{art.title}}</div>
+            <pre class="art-body">{{art.art}}</pre>
         </div>
         {% endfor %}
     </body>

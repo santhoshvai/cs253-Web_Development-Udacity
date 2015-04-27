@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+    <head>
+        <title>Enter new Blog Post</title>
+        <style type="text/css">
+            body {
+                font-family: sans-serif; width: 800px; margin: 0 auto; padding: 10px;
+            }
+            .content {
+                color: blue;
+            }
+            #wrapper {
+                position: relative;
+            }
+            #footerholder {
+                width: 100%;
+                position: absolute;
+            }
+            #footer {
+                background-color: #b10dc9;
+                color: #fff;
+                width: 800px;
+                height: 45px;
+                line-height: 45px;
+                font-size: small;
+            }
+            #madeby {
+                float: left;
+                padding-left: 10px;
+            }
+            #footer a{
+                color: #cee;
+            }
+            #queryhistory {
+                float:right;
+                padding-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>{{post.title}}</h1>
+        <div class="content">
+            {{post.render() | safe}}
+        </div>
+        <div id="footerholder">
+        <div id="footer">
+            <div id="madeby">
+                Made by <a href="http://santhosh.info">Santhosh</a>, taught by Steve Huffman
+            </div>
+            <div id="queryhistory">
+                Queried {{secs}} seconds ago
+            </div>
+        </div>
+        </div>
+        </div>
+    </body>
+
+{% endautoescape %}

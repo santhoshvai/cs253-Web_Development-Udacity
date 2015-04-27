@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body {
+        width: 800px;
+        margin: 0 auto;
+    }
+    #header a{
+        color:gray;
+    }
+    #header {
+        color:gray;
+        float: right;
+    }
+    #wrapper {
+        position: relative;
+    }
+    #footerholder {
+        width: 100%;
+        position: absolute;
+    }
+    #footer {
+        background-color: #b10dc9;
+        color: #fff;
+        clear: both;
+        width: 800px;
+        height: 45px;
+        line-height: 45px;
+        font-size: small;
+    }
+    #madeby {
+        margin: 0 auto;
+        padding-left: 10px;
+    }
+    #footer a{
+        color: #cee;
+    }
+    #content {
+        margin: 0 auto;
+    }
+    .error {
+        color: red;
+    }
+    textarea {
+        width: 400px;
+        height: 400px;
+    }
+    </style>
+    <title>{% block title %}{% endblock %} - Santhosh Udacity CS253</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            {% block header %}
+                {% if editable %}
+                <a href="/wiki/_edit/{{pagename}}">edit</a>&nbsp;&#124;
+                <a href="/wiki/history">history</a>&nbsp;&nbsp;
+                <a href="/wiki/logout">{{username}}&#40;logout&#41;</a>
+                {% else %}
+                <a href="/wiki/history">history</a>&nbsp;&nbsp;
+                <a href="/wiki/login">login</a>&nbsp;&#124;
+                <a href="/wiki/signup">signup</a>
+                {% endif %}
+            {% endblock %}
+        </div>
+        <div style="clear: both;"></div>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div style="clear: both;"></div>
+        <div id="footerholder">
+        <div id="footer">
+            <div id="madeby">
+                Made by <a href="http://santhosh.info">Santhosh</a>, taught by Steve Huffman
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

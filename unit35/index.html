@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+    <head>
+        <title>All blog posts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+        <style type="text/css">
+            body {
+                font-family: sans-serif; width: 800px; margin: 0 auto; padding: 10px;
+            }
+            err{
+                color: red;
+            }
+            label {
+                display: block; font-size: 20px;
+            }
+            input[type=text] {
+                width: 400px; font-size: 20px; padding: 2px;
+            }
+            textarea {
+                width: 400px; height: 200px; font-size: 17px; font-family: monospace;
+            }
+            input[type=submit] {
+                font-size: 24px;
+            }
+            hr {
+                margin: 20px auto;
+            }
+
+            .art {
+                margin-top: 20px;
+            }
+            .art-title {
+                font-weight: bold; font-size: 20px;
+            }
+            .art-body {
+                margin: 0; font-size: 17px; word-wrap: break-word;
+            }
+            .art-date {
+                float:right; font-size: 13px;
+            }
+            #wrapper {
+                position: relative;
+            }
+            #footerholder {
+                width: 100%;
+                position: absolute;
+            }
+            #footer {
+                background-color: #b10dc9;
+                color: #fff;
+                width: 800px;
+                height: 45px;
+                line-height: 45px;
+                font-size: small;
+            }
+            #madeby {
+                float: left;
+                padding-left: 10px;
+            }
+            #footer a{
+                color: #cee;
+            }
+            #queryhistory {
+                float:right;
+                padding-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+        {% for post in posts %}
+        <div class="art">
+            <div class="art-title">{{post.title}} <div class="art-date">{{post.createdTime()}}</div></div>
+            <hr>
+            <div class="art-body">{{post.render() | safe}}</div>
+        </div>
+        {% endfor %}
+        <div id="footerholder">
+        <div id="footer">
+            <div id="madeby">
+                Made by <a href="http://santhosh.info">Santhosh</a>, taught by Steve Huffman
+            </div>
+            <div id="queryhistory">
+                Queried {{secs}} seconds ago
+            </div>
+        </div>
+        </div>
+    </div>
+    </body>
+</html>
+{% endautoescape %}

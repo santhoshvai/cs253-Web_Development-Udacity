@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Edit - {{pagename}}{% endblock %}
+{% block header %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<h1>Editing {{pagename}}</h1>
+{% if editable %}
+<form method="post">
+    <textarea name="content">{{text}}</textarea>
+    <input type="submit">
+</form>
+{% endif %}
+<p class="error">
+  {{error}}
+</p>
+{% endblock %}
